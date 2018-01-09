@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block title %}home.html{% endblock %}
+
+{% load staticfiles %}
+{% block extrastyle %}{% static "css/home.css" %}{% endblock %}
+
+{% block content %}
+
+<div id="content_home">
+
+    <div id="home_top_blank">
+        <h4 style="margin: 5;">          </h4>
+    </div>
+    <div id="homeimg">
+        <a href="/"><img src="{% static 'img/mvis02.jpg' %}" style="height:305px; margin-top: 10px;"/></a>
+        <h4 style="margin: 1px;">공대 어울마루 회의실 홈페이지입니다.</h4>
+    </div>
+
+    <hr style="margin: 5px 0;">
+
+    <h2>기능 선택 창 - 임시</h2>
+
+    <table id="applist">
+        <tr>
+        <td><b><i><a href="{% url 'bookmark:index' %}">Bookmark</a></i><b></td>
+        <td>여기 누르면 링크 이동 , 배너 같은 걸로 이용하거나 삭제할 기능.    </td>
+        <td class="Edit"><i><a href="{% url 'bookmark:add' %}">Add</a></i></td>
+        <td class="Edit"><i><a href="{% url 'bookmark:change' %}">Change</a></i></td>
+        </tr>
+
+        <tr>
+        <td><b><i><a href="{% url 'blog:index' %}">Blog</a></i><b></td>
+        <td>여기 누르면 공지사항으로 이동. 게시글도 포함.                </td>
+        <td class="Edit"><i><a href="{% url 'blog:add' %}">Add</a></i></td>
+        <td class="Edit"><i><a href="{% url 'blog:change' %}">Change</a></i></td>
+        </tr>
+
+        <tr>
+        <td><b><i><a href="{% url 'photo:index' %}">Photo</a></i><b></td>
+        <td>어울마루 회의실 사진 업로드 할 계획							</td>
+        <td class="Edit"><i><a href="{% url 'photo:album_add' %}">Add</a></i></td>
+        <td class="Edit"><i><a href="{% url 'photo:album_change' %}">Change</a></i></td>
+        </tr>
+    </table>
+</div>
+{% endblock content %}
+
+{% block footer %}
+<div id="footer">
+    &copy; SEA LAB SUBIN        담 당 : 박수빈      담당 전화번호 : 010-6755-3188  
+{% endblock footer %}
