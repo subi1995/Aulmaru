@@ -3,26 +3,19 @@
 {% block title %}post_detail.html{% endblock %}
 
 {% block content %}
+{% load staticfiles %}
+<link rel="stylesheet" href="{% static 'css/blog_detail.css' %}">
+
 <div id="content">
-
-<h2>{{ object.title }}</h2>
-
-<p class="other_posts">
-    {% if object.get_previous_by_modify_date %}
-    <a href="{{ object.get_previous_post.get_absolute_url }}" title="View previous post">&laquo;--{{ object.get_previous_post }}</a>
-    {% endif %}
-
-    {% if object.get_next_by_modify_date %}
-    | <a href="{{ object.get_next_post.get_absolute_url }}" title="View next post">{{ object.get_next_post }}--&raquo;</a>
-    {% endif %}
-</p>
-
-<p class="date">{{ object.modify_date|date:"j F Y" }}</p>
-<br/>
+<h2 class="title" style="">{{ object.title }}</h2>
 
 <div class="body">
-    {{ object.content|linebreaks }}
+	<div class="post">{{ object.content|linebreaks }}</div>
+    
 </div>
+
+<br/>
+<p class="date"> 작성일 : {{ object.modify_date|date:"Y F j" }}</p>
 
 <div>
 <b>TAGS: </b>
@@ -35,6 +28,17 @@
 </div>
 
 <br/>
+
+<p class="other_posts", style="position: absolute;">
+    {% if object.get_previous_by_modify_date %}
+    <a href="{{ object.get_previous_post.get_absolute_url }}" title="View previous post">&laquo;--{{ object.get_previous_post }}</a>
+    {% endif %}
+
+    {% if object.get_next_by_modify_date %}
+    | <a href="{{ object.get_next_post.get_absolute_url }}" title="View next post">{{ object.get_next_post }}--&raquo;</a>
+    {% endif %}
+</p>
+<br/><br/>
 <div>
 {% load disqus_tags %}
 {% disqus_show_comments %}

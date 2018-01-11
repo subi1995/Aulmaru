@@ -7,7 +7,7 @@
 <title>{% block title %}GNU{% endblock %}</title>
 
 {% load staticfiles %}
-<link rel="stylesheet" type="text/css" href="{% block stylesheet %}{% static "css/base_change.css" %}{% endblock %}" />
+<link rel="stylesheet" type="text/css" href="{% block stylesheet %}{% static "css/base_change2.css" %}{% endblock %}" />
 <link rel="stylesheet" type="text/css" href="{% block extrastyle %}{% endblock %}" />
 
 </head>
@@ -24,13 +24,13 @@
     </h4>
     {% else %}
     <h4 class="welcome">Welcome, Anonymous /
-                <a href="{% url 'login' %}">Login</a> /
-                <a href="{% url 'register' %}">Register</a>
+                <a href="{% url 'login' %}">Login</a> 
+<!--                <a href="{% url 'register' %}">Register</a>-->
     </h4>
     {% endif %}
 </div>
 
-<div id="Menu_logo"><a href="/"><img src="{% static 'img/logo_N.jpg' %}" style="height:50px;"/></a></div>
+<div id="Menu_logo"><a href="/"><img src="{% static 'img/logo_N.jpg' %}" style="height:20% width: 100%; margin-top : 3%;"/></a></div>
 <div id="menu">
     <li><a href="{% url 'home' %}">홈</a></li>
     <li><a href="{% url 'blog:index' %}">공지사항</a></li>
